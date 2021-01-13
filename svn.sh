@@ -74,7 +74,7 @@ case $num in
 	[ -z $svnPort ] && echo "[svnserve]未启动，请启动后再重试！" && exit
 	svnPath=`ps -x | grep svnserve | grep -v grep | sed "s@.*\s\(/[^\ ]*\)\s*.*@\1@"`
 	[[ $svnPath =~ .*/$ ]] && svnPath=`echo $svnPath |sed 's@/$@@'`
-	read -p"将要新建建的版本库名称：" svnName
+	read -p"将要新建的版本库名称：" svnName
 	read -ep"需要版本化的路径：" webPath
 	[[ $webPath =~ .*/$ ]] && webPath=`echo $webPath |sed 's@/$@@'`
 	svnadmin create ${svnPath}/${svnName}
